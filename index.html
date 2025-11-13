@@ -1,0 +1,143 @@
+<html>
+  <!-- Import the component -->
+  <script
+    type="module"
+    src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+  ></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    model-viewer {
+      width: 100vw;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .Hotspot {
+      background: none;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      position: relative;
+      width: 24px;
+      height: 24px;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .Hotspot::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      background-color: #0084ff;
+      border-radius: 6px;
+      transform: translate(-50%, -50%);
+    }
+
+    .HotspotAnnotation {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+  </style>
+</html>
+<body>
+  <!-- Use it like any other HTML element -->
+  <model-viewer
+    src="model.glb"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    tone-mapping="neutral"
+    poster="poster.webp"
+    shadow-intensity="1"
+  >
+    <button
+      class="Hotspot"
+      slot="hotspot-2"
+      data-position="-0.004643473359799033m 0.22388015661337568m 0.0035569201845176424m"
+      data-normal="0.16889448670110324m 0.9355595385002337m -0.31016608822242475m"
+      data-visibility-attribute="visible"
+    >
+      <div class="HotspotAnnotation">right eye</div></button
+    ><button
+      class="Hotspot"
+      slot="hotspot-3"
+      data-position="-0.0025437623431745493m 0.22793786588181464m 0.04295545468832834m"
+      data-normal="-0.08118333764723443m 0.8681065994566728m 0.4896939836961724m"
+      data-visibility-attribute="visible"
+    >
+      <div class="HotspotAnnotation">left eye</div></button
+    ><button
+      class="Hotspot"
+      slot="hotspot-4"
+      data-position="0.05125325902496758m 0.0318179214636668m -0.08584371445042008m"
+      data-normal="-0.1887163816511656m 0.9451666303676796m 0.266544870773943m"
+      data-visibility-attribute="visible"
+    >
+      <div class="HotspotAnnotation">tail</div></button
+    ><button
+      class="Hotspot"
+      slot="hotspot-5"
+      data-position="0.0435102398824635m 0.2474287367205822m -0.011508203799555666m"
+      data-normal="-0.9045686291233621m 0.385117882361711m -0.18286555687475137m"
+      data-visibility-attribute="visible"
+    >
+      <div class="HotspotAnnotation">right ear</div></button
+    ><button
+      class="Hotspot"
+      slot="hotspot-6"
+      data-position="0.04313275494385149m 0.2502277452962973m 0.05941968957837601m"
+      data-normal="-0.8598913998693063m 0.43170308136021307m 0.2724320648802235m"
+      data-visibility-attribute="visible"
+    >
+      <div class="HotspotAnnotation">left ear</div></button
+    ><button
+      class="Hotspot"
+      slot="hotspot-7"
+      data-position="-0.07222254335105993m 0.07752683167203339m 0.10229692457742753m"
+      data-normal="-0.821676913692999m 0.5328670432385019m -0.20223690003113823m"
+      data-visibility-attribute="visible"
+    >
+      <div class="HotspotAnnotation">paw</div></button
+    ><button
+      class="Hotspot"
+      slot="hotspot-8"
+      data-position="-0.09431449582717177m 0.20370517288379567m 0.022626592812147933m"
+      data-normal="-0.9929065117514226m 0.009062703224573197m 0.11855178755246687m"
+      data-visibility-attribute="visible"
+    >
+      <div class="HotspotAnnotation">snout</div></button
+    ><button
+      class="Hotspot"
+      slot="hotspot-9"
+      data-position="-0.06175169919518242m 0.07344159172327208m -0.05102807617303287m"
+      data-normal="-0.8419253081355279m 0.5265103900108465m -0.11810412664899843m"
+      data-visibility-attribute="visible"
+    >
+      <div class="HotspotAnnotation">paw</div>
+    </button>
+    <div class="progress-bar hide" slot="progress-bar">
+      <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">View in your space</button>
+    <div id="ar-prompt">
+      <img src="https://modelviewer.dev/shared-assets/icons/hand.png" />
+    </div>
+  </model-viewer>
+</body>
