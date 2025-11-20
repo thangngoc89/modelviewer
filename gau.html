@@ -1,0 +1,140 @@
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Model with Hotspots</title>
+    <!-- Import the component -->
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+    ></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      model-viewer {
+        width: 100vw;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+
+      .Hotspot {
+        background: none;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        position: relative;
+        width: 24px;
+        height: 24px;
+        border-radius: 12px;
+        background-color: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .Hotspot::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 12px;
+        height: 12px;
+        background-color: #0084ff;
+        border-radius: 6px;
+        transform: translate(-50%, -50%);
+      }
+
+      .HotspotAnnotation {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+      #ar-prompt {
+        position: absolute;
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: none;
+      }
+      #ar-button {
+        position: absolute;
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 24px;
+        font-size: 16px;
+        background-color: #0084ff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+</html>
+<body>
+  <model-viewer
+    src="112233.glb"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    tone-mapping="neutral"
+    poster="poster_gau.webp"
+    shadow-intensity="1.02"
+    shadow-softness="1"
+    exposure="0.78"
+    camera-orbit="-118.6deg 91.7deg 4.91m"
+    field-of-view="30deg"
+    environment-image="legacy"
+  >
+    <button
+      class="Hotspot"
+      slot="hotspot-2"
+      data-position="-0.05910460402958029m 1.3985218436082774m 0.22751933544250844m"
+      data-normal="-0.17655882916566074m 0.9709140894614007m 0.16171830672187587m"
+      data-visibility-attribute="visible"
+    >
+      <div class="HotspotAnnotation">ear</div></button
+    ><button
+      class="Hotspot"
+      slot="hotspot-3"
+      data-position="-0.02229848181634958m 1.3556075993421202m -0.3312788065653057m"
+      data-normal="-0.4595702446991813m 0.8025963386786371m -0.38030817415193835m"
+      data-visibility-attribute="visible"
+    >
+      <div class="HotspotAnnotation">ear</div></button
+    ><button
+      class="Hotspot"
+      slot="hotspot-4"
+      data-position="-0.05841695228175729m -0.12647535224419104m 0.7960591998012377m"
+      data-normal="-0.48658255748764206m -0.5509552443840262m 0.6780012783428387m"
+      data-visibility-attribute="visible"
+    >
+      <div class="HotspotAnnotation">paw</div></button
+    ><button
+      class="Hotspot"
+      slot="hotspot-5"
+      data-position="-0.04183148636676177m -0.19335719890609795m -0.8263577254443865m"
+      data-normal="-0.10021084599560683m -0.2755724228349823m -0.9560426905309736m"
+      data-visibility-attribute="visible"
+    >
+      <div class="HotspotAnnotation">paw</div>
+    </button>
+    <div class="progress-bar hide" slot="progress-bar">
+      <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">View in your space</button>
+    <div id="ar-prompt">
+      <img src="https://modelviewer.dev/shared-assets/icons/hand.png" />
+    </div>
+  </model-viewer>
+</body>
